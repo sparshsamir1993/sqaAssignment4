@@ -27,34 +27,34 @@
 
         <!-- navbar -->
         <section class="container">
-            <form>
+            <form class="">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputPassword4">Name</label>
-                        <input type="text" class="form-control" id="inputName">
+                        <input type="text" class="form-control" id="inputName" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" id="inputEmail">
+                        <input type="email" class="form-control" id="inputEmail" required>
                     </div>
                 </div>
                 <div class="form-group">
                   <label for="inputAddress">Car Model</label>
-                  <input type="text" class="form-control" id="inputModel" placeholder="">
+                  <input type="text" class="form-control" id="inputModel" placeholder="" required>
                 </div>
                 <div class="form-group">
                   <label for="inputAddress2">Year Bought</label>
-                  <input type="text" class="form-control" id="inputBoughtYear" placeholder="">
+                  <input type="text" class="form-control" id="inputBoughtYear" placeholder="" required>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <input type="text" class="form-control" id="inputCity" required>
                   </div>
                   <div class="form-group col-md-4">
                     <label for="inputState">Province</label>
-                    <select id="inputState" class="form-control">
-                      <option selected>Choose...</option>
+                    <select id="inputState" class="form-control" required>
+                      <option selected></option>
                       <option>AB</option>
                       <option>BC</option>
                       <option>MB</option>
@@ -66,10 +66,13 @@
                       <option>QC</option>
                       <option>SK</option>
                     </select>
+                    <div class="invalid-feedback">
+                    Please choose a Province.
+                    </div>
                   </div>
                   <div class="form-group col-md-2">
                     <label for="inputZip">Price (CAD)</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <input type="text" class="form-control" id="inputZip" required>
                   </div>
                 </div>
                 <!-- <div class="form-group">
@@ -80,9 +83,10 @@
                     </label>
                   </div>
                 </div> -->
-                <button type="submit" class="btn btn-primary">Submit Ad</button>
+                <button type="submit" id="saveAd" class="btn btn-primary">Submit Ad</button>
             </form>
         </section>
         
     </body>
+    <script src="index.js" type="text/javascript"></script>
 </html>
