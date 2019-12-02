@@ -35,22 +35,44 @@ $(document).ready(function(){
        console.log(e);
 
        
-        e.preventDefault();
+        // e.preventDefault();
        let state = $("#inputState").val();
+       let name = $("#inputName").val();
+       let email = $("#inputEmail").val();
+       let carModel = $("#inputModel").val();
+       let yearBought = $("#inputBoughtYear").val();
+       let city = $("#inputCity").val();
+       let price = $("#inputZip").val();
+       let province= state;
        console.log(state);
-       if(state == ""){
+    //    debugger;
+       if(state == "" || city == "" || email == "" || carModel =="" || yearBought == "" || price ==""){
+            
+            // $("#inputState").addClass("is-invalid");
+            alert("Cheeck if all the fields are filled");
             e.preventDefault();
-            $("#inputState").addClass("is-invalid");
-       }else{
-        $("#inputState").removeClass("is-invalid");
+            e.stopPropagation();
+
+       }
+       else if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) || email == ""){
+        $("#inputEmail").addClass("is-invalid");
+        e.preventDefault();
+        e.stopPropagation();
+       }
+       else if(isNaN(yearBought) || yearBought > 2019){
+        $("#inputBoughtYear").addClass("is-invalid");
+        e.preventDefault();
+        e.stopPropagation();
+       }
+       else if(isNaN(price)){
+        $("#inputZip").addClass("is-invalid");
+        e.preventDefault();
+        e.stopPropagation();
+       }
+       else{
+        removeInvalids();
         // $("#inputState").addClass("is-valid");
-        let name = $("#inputName").val();
-        let email = $("#inputEmail").val();
-        let carModel = $("#inputModel").val();
-        let yearBought = $("#inputBoughtYear").val();
-        let city = $("#inputCity").val();
-        let price = $("#inputZip").val();
-        let province= state;
+
         let obj = {
             name,
             email,
@@ -84,3 +106,13 @@ $(document).ready(function(){
     
     $(".toBePop").html(s);
 });
+
+function removeInvalids(){
+     $("#inputState").removeClass("is-invalid");
+     $("#inputName").removeClass("is-invalid");
+    $("#inputEmail").removeClass("is-invalid");
+    $("#inputModel").removeClass("is-invalid");
+    $("#inputBoughtYear").removeClass("is-invalid");
+     $("#inputCity").removeClass("is-invalid");
+    $("#inputZip").removeClass("is-invalid");
+}
