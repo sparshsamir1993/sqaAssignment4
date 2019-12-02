@@ -1,0 +1,22 @@
+nav{
+    background-color: #3446eb;
+    
+}
+
+nav > a, nav > .navbar-nav > a.nav-link{
+    color: white !important;    
+}
+.nav-link, .nav-item{
+    color: white !important;
+}
+
+
+table{
+    margin-top: 50px;
+}
+thead{
+    background-color: #348feb;
+}
+form{
+    margin-top: 50px;
+}

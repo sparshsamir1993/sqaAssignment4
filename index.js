@@ -4,32 +4,38 @@ $(document).ready(function(){
         {
             name: "James Bond",
             email: "jame007@bond.com",
-            carModel: "Aston Masrtin",
+            make: "Aston Martin",
+            carModel: "vanquish",
             yearBought: "2019",
             city: "Toronto",
             province: "ON",
             price: "7500000",
-            phno: "987654321"
+            phno: "987654321",
+            jdLink: `https://www.jdpower.com/cars/Aston-Martin/vanquish/2019`
         },
         {
             name: "Alladin",
             email: "king@persia.com",
-            carModel: "Flying Rug",
-            yearBought: "1019",
+            make: "Toyota",
+            carModel: "camry",
+            yearBought: "2009",
             city: "Kingdom Capital",
             province: "SK",
             price: "909500000",
-            phno: "987654321"
+            phno: "987654321",
+            jdLink: `https://www.jdpower.com/cars/Toyota/camry/2009`
         },
         {
             name: "ET",
             email: "alient@somewhere.com",
-            carModel: "UFO",
+            make: "Hyundai",
+            carModel: "accent",
             yearBought: "4019",
             city: "Toronto",
             province: "ON",
             price: "95900000",
-            phno: "987654321"
+            phno: "987654321",
+            jdLink: `https://www.jdpower.com/cars/Hyundai/accent/2008`
         }
     ];
     let adsToIterate = localStorage.getItem("ads") ? JSON.parse(localStorage.getItem("ads")) : ads;
@@ -47,6 +53,8 @@ $(document).ready(function(){
        let city = $("#inputCity").val();
        let price = $("#inputZip").val();
        let phno = $("#inputNumber").val();
+       let make = $("#inputMake").val();
+       let jdLink = `https://www.jdpower.com/cars/${make}/${carModel}/${yearBought}`;
        let province= state;
        console.log(state);
     //    debugger;
@@ -93,7 +101,8 @@ $(document).ready(function(){
             city,
             province,
             price,
-            phno
+            phno,
+            jdLink
         };
         adsToIterate.push(obj);
         localStorage.setItem("ads", JSON.stringify(adsToIterate) );
@@ -114,6 +123,7 @@ $(document).ready(function(){
                             <td>${x.city}</td>
                             <td>${x.province}</td>
                             <td>$&nbsp;${x.price}</td>
+                            <td><a href="${x.jdLink}" target="_blank">Link</a></td>
                         </tr>`;
         s+=singleRow;
     });
